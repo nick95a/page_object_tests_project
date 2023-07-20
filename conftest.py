@@ -17,7 +17,7 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action = 'store', default = 'chrome',
                       help = "Input your browser")
-    parser.addoption('--language', action = 'store', default = 'es', 
+    parser.addoption('--language', action = 'store', default = 'en', 
                      help = 'Input your language')
 
 @pytest.fixture(scope = 'function')

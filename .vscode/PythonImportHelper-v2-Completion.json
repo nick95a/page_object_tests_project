@@ -1,0 +1,163 @@
+[
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.ui",
+        "description": "selenium.webdriver.support.ui",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.ui",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.ui",
+        "description": "selenium.webdriver.support.ui",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.ui",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.chrome.options",
+        "description": "selenium.webdriver.chrome.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.chrome.options",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.chrome.options",
+        "description": "selenium.webdriver.chrome.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.chrome.options",
+        "documentation": {}
+    },
+    {
+        "label": "pytest,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest.",
+        "description": "pytest.",
+        "detail": "pytest.",
+        "documentation": {}
+    },
+    {
+        "label": "pytest_addoption",
+        "kind": 2,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "def pytest_addoption(parser):\n    parser.addoption('--browser_name', action = 'store', default = 'chrome',\n                      help = \"Input your browser\")\n    parser.addoption('--language', action = 'store', default = 'en', \n                     help = 'Input your language')\n@pytest.fixture(scope = 'function')\ndef browser(request):\n    browser_name = request.config.getoption('browser_name')\n    browser_language = request.config.getoption('language')\n    browser = None",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
+        "label": "browser",
+        "kind": 2,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "def browser(request):\n    browser_name = request.config.getoption('browser_name')\n    browser_language = request.config.getoption('language')\n    browser = None\n    options.add_experimental_option('prefs', {'intl.accept_languages': browser_language})\n    if browser_name == 'chrome':\n        browser = webdriver.Chrome(options = options)\n    else:\n        browser = None\n        raise pytest.UsageError(\"browser is not chrome\")",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
+        "label": "language",
+        "kind": 5,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "language = 'es'\noptions.add_experimental_option('prefs', {'intl.accept_languages': language})\n\"\"\"\noptions = Options()\nlink = \"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/\"\ndef pytest_addoption(parser):\n    parser.addoption('--browser_name', action = 'store', default = 'chrome',\n                      help = \"Input your browser\")\n    parser.addoption('--language', action = 'store', default = 'en', \n                     help = 'Input your language')",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
+        "label": "options",
+        "kind": 5,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "options = Options()\nlink = \"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/\"\ndef pytest_addoption(parser):\n    parser.addoption('--browser_name', action = 'store', default = 'chrome',\n                      help = \"Input your browser\")\n    parser.addoption('--language', action = 'store', default = 'en', \n                     help = 'Input your language')\n@pytest.fixture(scope = 'function')\ndef browser(request):\n    browser_name = request.config.getoption('browser_name')",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
+        "label": "link",
+        "kind": 5,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "link = \"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/\"\ndef pytest_addoption(parser):\n    parser.addoption('--browser_name', action = 'store', default = 'chrome',\n                      help = \"Input your browser\")\n    parser.addoption('--language', action = 'store', default = 'en', \n                     help = 'Input your language')\n@pytest.fixture(scope = 'function')\ndef browser(request):\n    browser_name = request.config.getoption('browser_name')\n    browser_language = request.config.getoption('language')",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
+        "label": "@pytest.fixture(scope",
+        "kind": 5,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "@pytest.fixture(scope = 'function')\ndef browser(request):\n    browser_name = request.config.getoption('browser_name')\n    browser_language = request.config.getoption('language')\n    browser = None\n    options.add_experimental_option('prefs', {'intl.accept_languages': browser_language})\n    if browser_name == 'chrome':\n        browser = webdriver.Chrome(options = options)\n    else:\n        browser = None",
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
+        "label": "test_guest_can_go_to_login_page",
+        "kind": 2,
+        "importPath": "test_main_page",
+        "description": "test_main_page",
+        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    browser.get(link)\n    login_link = browser.find_element(By.CSS_SELECTOR, \"#login_link\")\n    login_link.click()",
+        "detail": "test_main_page",
+        "documentation": {}
+    }
+]
