@@ -1,5 +1,29 @@
 [
     {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -22,22 +46,6 @@
         "description": "selenium",
         "isExtraImport": true,
         "detail": "selenium",
-        "documentation": {}
-    },
-    {
-        "label": "By",
-        "importPath": "selenium.webdriver.common.by",
-        "description": "selenium.webdriver.common.by",
-        "isExtraImport": true,
-        "detail": "selenium.webdriver.common.by",
-        "documentation": {}
-    },
-    {
-        "label": "By",
-        "importPath": "selenium.webdriver.common.by",
-        "description": "selenium.webdriver.common.by",
-        "isExtraImport": true,
-        "detail": "selenium.webdriver.common.by",
         "documentation": {}
     },
     {
@@ -95,6 +103,24 @@
         "importPath": "pytest.",
         "description": "pytest.",
         "detail": "pytest.",
+        "documentation": {}
+    },
+    {
+        "label": "BasePage",
+        "kind": 6,
+        "importPath": "pages.base_page",
+        "description": "pages.base_page",
+        "peekOfCode": "class BasePage():\n    # Инициализации класса с конструктором\n    def __init__(self, browser, url):\n        self.browser = browser\n        self.url = url\n    def open(self):\n        self.browser.get(self.url)",
+        "detail": "pages.base_page",
+        "documentation": {}
+    },
+    {
+        "label": "MainPage",
+        "kind": 6,
+        "importPath": "pages.main_page",
+        "description": "pages.main_page",
+        "peekOfCode": "class MainPage(BasePage):\n    def go_to_login_page(self):\n        login_link = self.browser.find_element(By.CSS_SELECTOR, \"#login_link\")\n        login_link.click()",
+        "detail": "pages.main_page",
         "documentation": {}
     },
     {
@@ -156,7 +182,7 @@
         "kind": 2,
         "importPath": "test_main_page",
         "description": "test_main_page",
-        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    browser.get(link)\n    login_link = browser.find_element(By.CSS_SELECTOR, \"#login_link\")\n    login_link.click()",
+        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link)\n    page.open()\n    page.go_to_login_page()",
         "detail": "test_main_page",
         "documentation": {}
     }
