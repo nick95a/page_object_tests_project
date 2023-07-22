@@ -1,5 +1,21 @@
 [
     {
+        "label": "NoSuchElementException",
+        "importPath": "selenium.common.exceptions",
+        "description": "selenium.common.exceptions",
+        "isExtraImport": true,
+        "detail": "selenium.common.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "NoSuchAttributeException",
+        "importPath": "selenium.common.exceptions",
+        "description": "selenium.common.exceptions",
+        "isExtraImport": true,
+        "detail": "selenium.common.exceptions",
+        "documentation": {}
+    },
+    {
         "label": "By",
         "importPath": "selenium.webdriver.common.by",
         "description": "selenium.webdriver.common.by",
@@ -110,7 +126,7 @@
         "kind": 6,
         "importPath": "pages.base_page",
         "description": "pages.base_page",
-        "peekOfCode": "class BasePage():\n    # Инициализации класса с конструктором\n    def __init__(self, browser, url):\n        self.browser = browser\n        self.url = url\n    def open(self):\n        self.browser.get(self.url)",
+        "peekOfCode": "class BasePage():\n    # Инициализации класса с конструктором\n    def __init__(self, browser, url, timeout = 10):\n        self.browser = browser\n        self.url = url\n        self.timeout = timeout\n    # функция для открытия страницы\n    def open(self):\n        self.browser.get(self.url)\n    def is_element_present(self, search_method, selector):",
         "detail": "pages.base_page",
         "documentation": {}
     },
@@ -119,7 +135,7 @@
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPage(BasePage):\n    def go_to_login_page(self):\n        login_link = self.browser.find_element(By.CSS_SELECTOR, \"#login_link\")\n        login_link.click()",
+        "peekOfCode": "class MainPage(BasePage):\n    # функция для перехода по ссылке на страницу логина\n    def go_to_login_page(self):\n        login_link = self.browser.find_element(By.CSS_SELECTOR, \"#login_link\")\n        login_link.click() \n    # для проверки наличия ссылки для логина\n    def check_login_link(self):\n        assert self.is_element_present.find_element(By.CSS_SELECTOR, \"#invalid_login_link\"), \"The element is not present\"",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -182,7 +198,16 @@
         "kind": 2,
         "importPath": "test_main_page",
         "description": "test_main_page",
-        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link)\n    page.open()\n    page.go_to_login_page()",
+        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.go_to_login_page()\ndef test_guest_should_see_login_link(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.check_login_link()",
+        "detail": "test_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_guest_should_see_login_link",
+        "kind": 2,
+        "importPath": "test_main_page",
+        "description": "test_main_page",
+        "peekOfCode": "def test_guest_should_see_login_link(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.check_login_link()",
         "detail": "test_main_page",
         "documentation": {}
     }
