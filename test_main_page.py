@@ -7,10 +7,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
 from .pages.main_page import MainPage
+from .pages.locators import MainPageLocators
 
 # тест перехода на страницу логина
 def test_guest_can_go_to_login_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/"
+    link = "http://selenium1py.pythonanywhere.com/"    
     page = MainPage(browser, link, 0)
     page.open()
     page.go_to_login_page()

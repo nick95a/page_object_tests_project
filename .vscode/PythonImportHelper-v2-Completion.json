@@ -40,6 +40,22 @@
         "documentation": {}
     },
     {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "browser",
+        "importPath": "conftest",
+        "description": "conftest",
+        "isExtraImport": true,
+        "detail": "conftest",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -131,11 +147,38 @@
         "documentation": {}
     },
     {
+        "label": "MainPageLocators",
+        "kind": 6,
+        "importPath": "pages.locators",
+        "description": "pages.locators",
+        "peekOfCode": "class MainPageLocators():\n    LOGIN_LINK = (By.CSS_SELECTOR, \"#login_link\")\n    MAIN_PAGE_URL = \"http://selenium1py.pythonanywhere.com/\"\nclass LoginPageLocators():\n    LOGIN_PAGE_URL = \"http://selenium1py.pythonanywhere.com/ru/accounts/login/\"\n    LOGIN_FORM = (By.ID, \"login_form\")\n    REGISTRATION_FORM = (By.ID, \"register_form\")",
+        "detail": "pages.locators",
+        "documentation": {}
+    },
+    {
+        "label": "LoginPageLocators",
+        "kind": 6,
+        "importPath": "pages.locators",
+        "description": "pages.locators",
+        "peekOfCode": "class LoginPageLocators():\n    LOGIN_PAGE_URL = \"http://selenium1py.pythonanywhere.com/ru/accounts/login/\"\n    LOGIN_FORM = (By.ID, \"login_form\")\n    REGISTRATION_FORM = (By.ID, \"register_form\")",
+        "detail": "pages.locators",
+        "documentation": {}
+    },
+    {
+        "label": "LoginPage",
+        "kind": 6,
+        "importPath": "pages.login_page",
+        "description": "pages.login_page",
+        "peekOfCode": "class LoginPage(BasePage):\n    def should_be_login_page(self):\n        self.should_be_login_url()\n        self.should_be_login_form()\n        self.should_be_register_form()\n    def should_be_login_url(self):\n        # реализуйте проверку на корректный url адрес\n        current_url = self.browser.current_url()\n        assert \"login\" in current_url, \"The url does not contain 'login' substring\"\n        \"\"\"",
+        "detail": "pages.login_page",
+        "documentation": {}
+    },
+    {
         "label": "MainPage",
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPage(BasePage):\n    # функция для перехода по ссылке на страницу логина\n    def go_to_login_page(self):\n        login_link = self.browser.find_element(By.CSS_SELECTOR, \"#login_link\")\n        login_link.click() \n    # для проверки наличия ссылки для логина\n    def check_login_link(self):\n        assert self.is_element_present.find_element(By.CSS_SELECTOR, \"#invalid_login_link\"), \"The element is not present\"",
+        "peekOfCode": "class MainPage(BasePage):\n    # функция для перехода по ссылке на страницу логина\n    def go_to_login_page(self):\n        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)\n        login_link.click() \n    # для проверки наличия ссылки для логина\n    def check_login_link(self):\n        assert self.browser.is_element_present(By.CSS_SELECTOR, \"#invalid_login_link\"), \"The element is not present\"",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -198,7 +241,7 @@
         "kind": 2,
         "importPath": "test_main_page",
         "description": "test_main_page",
-        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.go_to_login_page()\ndef test_guest_should_see_login_link(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.check_login_link()",
+        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"    \n    page = MainPage(browser, link, 0)\n    page.open()\n    page.go_to_login_page()\ndef test_guest_should_see_login_link(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.check_login_link()",
         "detail": "test_main_page",
         "documentation": {}
     },
