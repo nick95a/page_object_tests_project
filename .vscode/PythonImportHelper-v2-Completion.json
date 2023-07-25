@@ -138,6 +138,14 @@
         "documentation": {}
     },
     {
+        "label": "LoginPage",
+        "importPath": "pages.login_page",
+        "description": "pages.login_page",
+        "isExtraImport": true,
+        "detail": "pages.login_page",
+        "documentation": {}
+    },
+    {
         "label": "BasePage",
         "kind": 6,
         "importPath": "pages.base_page",
@@ -241,7 +249,7 @@
         "kind": 2,
         "importPath": "test_main_page",
         "description": "test_main_page",
-        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"    \n    page = MainPage(browser, link, 0)\n    page.open()\n    page.go_to_login_page()\ndef test_guest_should_see_login_link(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)\n    page.open()\n    page.check_login_link()",
+        "peekOfCode": "def test_guest_can_go_to_login_page(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"    \n    page = MainPage(browser, link, 0)\n    page.open()\n    page.go_to_login_page()\n    login_page = LoginPage(browser, browser.current_url)\n    login_page.should_be_login_page()\ndef test_guest_should_see_login_link(browser):\n    link = \"http://selenium1py.pythonanywhere.com/\"\n    page = MainPage(browser, link, 0)",
         "detail": "test_main_page",
         "documentation": {}
     },

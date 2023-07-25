@@ -14,3 +14,4 @@ class MainPage(BasePage):
     def check_login_link(self):
         assert self.browser.is_element_present(By.CSS_SELECTOR, "#invalid_login_link"), "The element is not present"
     
+    
